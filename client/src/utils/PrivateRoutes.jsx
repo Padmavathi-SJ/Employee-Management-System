@@ -1,15 +1,15 @@
-import React from 'react'
-import { useAuth } from '../context/AuthContext'
-import {Navigate} from 'react-router-dom'
+import React from 'react';
+import { useAuth } from '../context/authContext';
+import { Navigate } from 'react-router-dom';
 
-const PrivateRoutes = (children) => {
-    const {user, loading} = useAuth()
+const PrivateRoutes = ({ children }) => {  // Destructure children from props
+    const { user, loading } = useAuth();
 
-    if(loading) {
-        <cidv>Loading....</cidv>
+    if (loading) {
+        return <div>Loading....</div>;
     }
- 
-    return user ? children : <Navigate to ="/login" />
-}
 
-export default PrivateRoutes
+    return user ? children : <Navigate to="/login" />;
+};
+
+export default PrivateRoutes;

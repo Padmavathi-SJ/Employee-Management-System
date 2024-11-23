@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
               "Authorization": `Bearer ${token}`, // Add the token to the Authorization header
             },
           });
-
+          console.log(response);
           if (response.data.success) {
             setUser(response.data.user); // Set user data from the response
           } else {
